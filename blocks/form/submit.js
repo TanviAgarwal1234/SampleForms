@@ -81,15 +81,15 @@ async function prepareRequest(form) {
     'x-adobe-routing': `tier=${tier},bucket=${branch}--${site}--${org}`,
   };
   const body = { data: payload };
-  let url;
-  let baseUrl = getSubmitBaseUrl();
+  let url = form.dataset.action;
+  /*let baseUrl = getSubmitBaseUrl();
   if (!baseUrl && org && site) {
     baseUrl = 'https://forms.adobe.com/adobe/forms/af/submit/';
     headers['x-adobe-routing'] = `tier=${tier},bucket=${branch}--${site}--${org}`;
     url = baseUrl + btoa(form.dataset.action);
   } else {
     url = form.dataset.action;
-  }
+  }*/
   return { headers, body, url };
 }
 
